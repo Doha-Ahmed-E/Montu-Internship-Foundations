@@ -1,4 +1,4 @@
-# Montu Server
+# Server
 
 Backend server built with Node.js, TypeScript, and Express.
 
