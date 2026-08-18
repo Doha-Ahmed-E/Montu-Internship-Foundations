@@ -1,5 +1,6 @@
 import "dotenv/config";
 import express from "express";
+import { connectDatabase } from "@/config/database.js";
 import healthRoutes from "@/routes/health.routes.js";
 
 const PORT = process.env.PORT;
@@ -9,6 +10,12 @@ app.use(express.json());
 
 app.use("/", healthRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+const startServer = async () => {
+  await connectDatabase();
+
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+};
+
+startServer();
