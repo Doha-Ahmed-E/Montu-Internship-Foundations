@@ -27,6 +27,21 @@ const userSchema = new Schema(
       enum: ["user", "admin"],
       default: "user",
     },
+
+    emailVerified: {
+      type: Boolean,
+      default: false,
+    },
+
+    emailVerificationCode: {
+      type: String,
+      default: null,
+    },
+
+    emailVerificationExpiresAt: {
+      type: Date,
+      default: null,
+    },
   },
   {
     timestamps: true,
