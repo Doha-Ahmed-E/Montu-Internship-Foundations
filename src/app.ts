@@ -1,4 +1,5 @@
 import "dotenv/config";
+import "@/types/express.js";
 import express from "express";
 import { connectDatabase } from "@/config/database.js";
 import healthRoutes from "@/routes/health.routes.js";
