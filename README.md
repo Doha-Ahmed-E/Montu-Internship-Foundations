@@ -79,4 +79,4 @@ npm run start
 
 ## API Documentation
 
-* Postman Collection: [Montu_Foundations_postman_collection.json](Montu_Foundations_postman_collection.json)
+* Postman Collection: [Montu_Foundations.postman_collection.json](Montu_Foundations.postman_collection.json)
