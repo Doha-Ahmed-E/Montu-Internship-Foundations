@@ -1,113 +1,82 @@
-# Montu INternship Foundations
+# Montu Internship Foundations
 
-Node.js + Express + TypeScript backend with MongoDB authentication.
-
-## Features
-
-- Express server with `/ping` health check
-- MongoDB Atlas integration using Mongoose
-- User registration with validation
-- Password hashing with bcrypt
-- Email verification using a 6-digit code
-- JWT-based login authentication
-- Environment variable configuration
-
-## Structure
+## Project structure
 
 ```text
 src/
-├── config/
-│   └── database.ts
 ├── controllers/
-│   └── auth.controller.ts
 ├── middleware/
-│   ├── error.middleware.ts
-│   └── validation.middleware.ts│   
-│       
 ├── models/
-│   └── user.model.ts
 ├── routes/
-│   ├── auth.routes.ts
-│   └── health.routes.ts
 ├── services/
-│   ├── auth.service.ts
-│   └── email.service.ts
+├── config/
+├── types/
 ├── utils/
-│   └── AppError.ts
 └── app.ts
-````
+```
 
-## Setup
+## Current Features
+
+* Health check endpoint
+
+  * GET /ping
+
+* Authentication
+
+  * POST /api/auth/signup
+  * POST /api/auth/verify-email
+  * POST /api/auth/signin
+  * JWT authentication middleware
+  * Password hashing with bcrypt
+  * Email verification using Brevo
+
+* Profile management
+
+  * GET /api/profile
+  * PATCH /api/profile
+
+* Tasks management
+
+  * POST /api/tasks
+  * GET /api/tasks
+  * GET /api/tasks/:id
+  * PATCH /api/tasks/:id
+  * DELETE /api/tasks/:id
+
+* Request validation
+
+  * Request validation using express-validator
+
+* Database
+
+  * MongoDB Atlas with Mongoose
+
+* Deployment
+
+  * Railway
+
+## How to run locally
 
 ```bash
+# Create a .env file and fill in the required environment variables
+
+# Install dependencies
 npm install
-```
 
-Create `.env` like `.env.example`:
-
-`EMAIL_PASSWORD` should be a Gmail App Password, not the regular Gmail password.
-
-## Run
-
-```bash
+# Run in development mode
 npm run dev
+
+# Build for production
+npm run build
+
+# Run in production
+npm run start
 ```
 
-Server:
+## Railway project
 
-```text
-http://localhost:3000
-```
+* [Deployed Railway project](https://montu-internship-foundations-production.up.railway.app/)
 
-## Auth Endpoints
+## API Documentation
 
-### Health Check
-
-```http
-GET /ping
-```
-
-### Sign Up
-
-```http
-POST /api/auth/signup
-```
-
-```json
-{
-  "name": "name",
-  "email": "user@example.com",
-  "password": "password123"
-}
-```
-
-Creates an unverified user and sends an email verification code.
-
-### Verify Email
-
-```http
-POST /api/auth/verify-email
-```
-
-```json
-{
-  "email": "user@example.com",
-  "code": "123456"
-}
-```
-
-### Sign In
-
-```http
-POST /api/auth/signin
-```
-
-```json
-{
-  "email": "user@example.com",
-  "password": "password123"
-}
-```
-
-Returns a JWT after successful email verification.
-
+* Postman Collection: [Montu_Foundations_postman_collection.json](Montu_Foundations_postman_collection.json)
